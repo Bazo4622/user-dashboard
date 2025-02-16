@@ -1,0 +1,66 @@
+.user-list {
+    margin-top: 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 5rem;
+    row-gap: 2.5rem;
+    justify-items: center;
+}
+  
+.user-card {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    padding: 1rem;
+    margin: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.user-card:hover {
+    background-color: #f0f0f0;
+}
+  
+.user-card img {
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+  
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+  
+.pagination button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+  
+.pagination button:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+.loading {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}

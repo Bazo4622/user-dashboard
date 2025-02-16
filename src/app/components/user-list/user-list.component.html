@@ -1,1 +1,15 @@
-<p>user-list works!</p>
+<div *ngIf="!userService.loading">
+  <div class="user-list">
+    <div *ngFor="let user of users" class="user-card" (click)="navigateToUser(user.id)">
+      <img [src]="user.avatar" alt="{{ user.first_name }} {{ user.last_name }}">
+      <div>{{ user.first_name }} {{ user.last_name }}</div>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+    <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+  </div>
+</div>
+<div *ngIf="userService.loading" class="loading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>

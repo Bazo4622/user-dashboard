@@ -1,1 +1,16 @@
-<p>user-details works!</p>
+<div *ngIf="!userService.loading">
+  <div *ngIf="!userNotFound" class="user-details">
+    <img [src]="user.avatar" alt="{{ user.first_name }} {{ user.last_name }}">
+    <div>{{ user.first_name }} {{ user.last_name }}</div>
+    <div>Email: {{ user.email }}</div>
+    <button (click)="goBack()">Back</button>
+  </div>
+  <div *ngIf="userNotFound" class="user-details">
+    <div>User Not Found</div>
+    <button (click)="goBack()">Back</button>
+  </div>
+</div>
+<div *ngIf="userService.loading" class="loading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <button (click)="goBack()" id="back">Back</button>
+</div>

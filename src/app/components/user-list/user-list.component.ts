@@ -33,6 +33,8 @@ export class UserListComponent implements OnInit {
     this.loadUsers();
   }
 
+
+  // Fetches users from the API and loads them into the component
   loadUsers(): void {
     this.userService.getUsers(this.page).subscribe({
       next: response => {
@@ -44,10 +46,12 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  // Navigates to the user details page
   navigateToUser(userId: number) {
     this.router.navigate(['/user', userId]);
   }
 
+  // Loads the next page of users
   nextPage(): void {
     if (this.page < this.userService.totalPages) {
       this.page++;
@@ -55,6 +59,7 @@ export class UserListComponent implements OnInit {
     }
   }
 
+  // Loads the previous page of users
   prevPage(): void {
     if (this.page > 1) {
       this.page--;

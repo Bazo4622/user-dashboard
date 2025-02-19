@@ -27,6 +27,7 @@ export class UserDetailsComponent implements OnInit, AfterContentChecked {
     this.fetchUserDetails(Number(userId));
   }
 
+  //updates user details when the route changes
   ngAfterContentChecked(): void {
     const userId = this.route.snapshot.paramMap.get('id') || '';
     if (parseInt(userId) <= this.userService.maxId || !this.userNotFound) {
@@ -34,6 +35,7 @@ export class UserDetailsComponent implements OnInit, AfterContentChecked {
     }
   }
   
+  // Fetches user details by ID.
   fetchUserDetails(userId: number): void {
     if(userId <= this.userService.maxId) {
       this.userService.getUser(userId).subscribe(response => {
@@ -46,6 +48,7 @@ export class UserDetailsComponent implements OnInit, AfterContentChecked {
     }
   }
 
+  // Navigates back to the user list
   goBack(): void {
     this.router.navigate(['/']);
   }

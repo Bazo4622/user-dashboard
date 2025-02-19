@@ -17,15 +17,11 @@ export class HeaderComponent {
 
   constructor(private userService: UserService, private router: Router) { }
 
+  // Navigates to the user search page
   onSearch(): void {
     if (this.searchQuery) {
       this.maxId = this.userService.maxId;
-      if (parseInt(this.searchQuery) > this.maxId) {
-        this.router.navigate(['/user', this.searchQuery]);
-      }
-      else {
-        this.router.navigate(['/user', this.searchQuery]);
-      }
+      this.router.navigate(['/user', this.searchQuery]);
     }
     else {
       this.router.navigate(['/']);

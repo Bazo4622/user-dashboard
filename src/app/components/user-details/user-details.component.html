@@ -5,11 +5,13 @@
     <div>Email: {{ user.email }}</div>
     <button (click)="goBack()">Back</button>
   </div>
+  <!-- Error handling upon unavailable id  -->
   <div *ngIf="userNotFound" class="user-details">
     <div>User Not Found</div>
     <button (click)="goBack()">Back</button>
   </div>
 </div>
+<!-- Sets the loading animation when user is loading  -->
 <div *ngIf="userService.loading" class="loading">
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
   <button (click)="goBack()" id="back">Back</button>
